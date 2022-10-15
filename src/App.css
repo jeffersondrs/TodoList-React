@@ -3,18 +3,27 @@
 @tailwind utilities;
 
 :root {
-  background: black;
+  background: rgb(255, 255, 255);
+}
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
 }
 
 .App {
-  background: rgb(62, 0, 106);
-  background: linear-gradient(
-    90deg,
-    rgba(62, 0, 106, 1) 0%,
-    rgba(142, 51, 241, 1) 47%,
-    rgba(198, 85, 240, 1) 85%
-  );
+  background: rgb(23, 151, 255);
+  width: 100vw;
+  height: 100vh;
   display: flex;
+  justify-content: center;
   overflow-y: scroll;
   flex-direction: column;
 }
@@ -52,6 +61,6 @@
   background: transparent;
 }
 
-.done {
-  text-decoration: line-through;
+input {
+  border: solid 3px rgb(92, 11, 199);
 }
