@@ -14,6 +14,7 @@ function App() {
     e.preventDefault();
     if (inputValue === "") return;
     setListTodo([inputValue, ...listTodo]);
+    setInputValue("");
     clearInput();
   };
 
@@ -33,18 +34,18 @@ function App() {
           </div>
           <form id="form" onSubmit={handleListTodo}>
             <input
-              className="bg-black text-white p-2 rounded-lg w-64 text-center outline-none border-spacing-0 m-0"
+              className="bg-white/20 text-white p-2 w-64 text-center border-b-2 border-t-0 border-r-0 border-l-0 m-0 outline-none"
               onChange={handleInput}
             />
             <button type="submit"></button>
           </form>
         </div>
-        <div className="flex flex-row flex-wrap justify-start sm:justify-center items-center first:m-1 p-2">
+        <div className="flex flex-row flex-wrap p-2">
           {listTodo.map((task, i) => {
             return (
-              <div>
+              <>
                 <div
-                  className="hover:bg-blue-700 flex flex-col bg-blue-600 w-40 h-40 justify-evenly items-center text-white p-1 rounded-md m-1"
+                  className="hover:bg-blue-700 flex flex-col bg-blue-600 max-w-xs justify-evenly items-center text-white p-1 rounded-md m-1"
                   key={i}
                 >
                   <div
@@ -52,9 +53,11 @@ function App() {
                       event.preventDefault();
                       event.target.classList.toggle("line-through");
                     }}
-                    className="w-full h-full cursor-pointer p-1 text-center uppercase"
+                    className="box-border w-full flex flex-col items-center justify-center h-full cursor-pointer"
                   >
-                    {task}
+                    <p className="w-full h-full text-center	break-words uppercase p-1">
+                      {task}
+                    </p>
                   </div>
                   <div className="w-full flex justify-end flex-row">
                     <BiTrash
@@ -68,7 +71,7 @@ function App() {
                     </BiTrash>
                   </div>
                 </div>
-              </div>
+              </>
             );
           })}
         </div>
