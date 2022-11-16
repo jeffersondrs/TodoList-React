@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import { BiTrash } from "react-icons/bi";
+import { TfiWrite } from "react-icons/tfi"
 
 function App() {
   const [listTodo, setListTodo] = useState([]);
@@ -36,6 +37,7 @@ function App() {
             <input
               className="bg-white/20 text-white p-2 w-64 text-center border-b-2 border-t-0 border-r-0 border-l-0 m-0 outline-none"
               onChange={handleInput}
+              id='input'
             />
             <button type="submit"></button>
           </form>
@@ -59,7 +61,18 @@ function App() {
                       {task}
                     </p>
                   </div>
-                  <div className="w-full flex justify-end flex-row">
+                  <div className="w-full flex justify-evenly flex-row">
+                  <TfiWrite
+                  className="cursor-pointer"
+                  onClick={(event)=>{
+                    event.preventDefault();
+                    setInputValue(task);
+                    const newValue = document.getElementById("input").value = inputValue;
+                    if(task !== task){
+                        setInputValue(newValue)
+                    }
+                  }}
+                  ></TfiWrite>
                     <BiTrash
                       className="cursor-pointer"
                       onClick={() => {
